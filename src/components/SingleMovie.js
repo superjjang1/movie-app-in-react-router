@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import config from '../config';
+import Spinner from './Spinner';
 
 
 class SingleMovie extends Component{
@@ -21,15 +22,20 @@ class SingleMovie extends Component{
     }
     render(){
         if(this.state.movieData.id === undefined){
-            return(<h1>loading....</h1>)
+            return(<Spinner />)
         }
 
         
         return(
             <div className="container"> 
+            <div className = "row"> 
             <img src={`http://image.tmdb.org/t/p/w300${this.state.movieData.production_companies[0].logo_path}`} alt={this.state.movieData.title} />
+            <img src={`http://image.tmdb.org/t/p/w300${this.state.movieData.poster_path}`} alt={this.state.movieData.title}/>
             <h1>{this.state.movieData.title}</h1>
-            <h1>{this.state.movieData.tagline}</h1>
+            <h4>{this.state.movieData.tagline}</h4>
+            <br/>
+            {this.state.movieData.overview}
+            </div>
             </div>
         )
     }

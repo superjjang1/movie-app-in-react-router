@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from'./components/Home';
 import NavBar from './components/NavBar';
 import SingleMovie from './components/SingleMovie';
-
+import Search from './components/Search';
 
 
 
@@ -15,7 +15,11 @@ class App extends Component{
           <Route path='/' component={NavBar}/>
           <div className="row"> 
             <Route exact path='/' component={Home}/>
+            <br/>
+            <br/>
+            <br/>
             <Route path="/movie/:movieId" component={SingleMovie}/>
+            <Route path="/search/:searchTerm" component ={Search}/>
           </div> 
         </div>
       </Router>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import config from '../config';
 import axios from 'axios';
 import Movie from './Movie';
+import Search from './Search';
 
 
 class Home extends Component{
@@ -25,6 +26,7 @@ class Home extends Component{
     return(
       <div className="col s12">
           {movies}
+          
       </div>
     )
   }
