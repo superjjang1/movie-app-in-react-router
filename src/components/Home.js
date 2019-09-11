@@ -2,21 +2,21 @@ import React, {Component} from 'react';
 import config from '../config';
 import axios from 'axios';
 import Movie from './Movie';
-import Search from './Search';
+// import Search from './Search';
 
 
 class Home extends Component{
     constructor(){
         super();
         this.state={
-            movieList:[]
+            movieList:[],
+            searching: ''
         }
     }
     async componentDidMount(){
         const nowPlayingUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${config.api_key}`;
         const resp = await axios.get(nowPlayingUrl)
         const movieResults = resp.data.results
-        console.log(movieResults);
         this.setState({
             movieList: movieResults
         })
